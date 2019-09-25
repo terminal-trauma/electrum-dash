@@ -76,6 +76,10 @@ class TxOutput(NamedTuple):
 
 
 class TxOutputForUI(NamedTuple):
+  
+  
+  
+  
     address: str
     value: int
 
@@ -501,7 +505,7 @@ def read_vds(vds, d, full_parse, alone_data=False):
     if tx_type:
         d['extra_payload'] = read_extra_payload(vds, tx_type)
     else:
-        d['extra_payload'] = b''
+        d['extra_payload'] = ''
     if alone_data and vds.can_read_more():
         raise SerializationError('extra junk at the end')
     return d
